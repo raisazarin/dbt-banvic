@@ -4,7 +4,7 @@ source as (
 
 select * from {{ source('jaffle_shop', 'customers') }}
 
-)
+),
 
 staged as (
 
@@ -17,4 +17,5 @@ staged as (
 
 )
 
-select * from staged
+select * 
+from staged
