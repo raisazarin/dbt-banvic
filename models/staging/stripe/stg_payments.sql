@@ -21,3 +21,4 @@ staged as (
 )
 
 select * from staged
+order by created_at DESC

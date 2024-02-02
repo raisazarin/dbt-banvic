@@ -2,11 +2,17 @@ version: 2
 
 models:
   - name: stg_payments
+    description: Staged payments data from our stripe stripe source. One unique payment for row.
     columns:
       - name: payment_id
+        description: the primary key for stg_payments
         tests:
           - unique
           - not_null
+      - name: created_at
+        description: date when the transaction was made
+      - name: payment_method
+        description: '{{ doc("payment_method") }}'
               
           
 
