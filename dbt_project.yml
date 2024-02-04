@@ -1,7 +1,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: jaffle_shop
+name: banvic
 version: "1.0.0"
 config-version: 2
 
@@ -34,9 +34,8 @@ clean-targets: # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  jaffle_shop:
+  banvic:
     marts:
-      core:
-        +materialized: table
+      +materialized: table
     staging:
       +materialized: view
