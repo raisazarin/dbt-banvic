@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: raw_banvic
+    description: a clone of Postgres application database.
+    database: teste1-412021
+    tables:
+      - name: agencias
+        description: the raw agencias data.
+        columns:
+          - name: cod_agencia
+            description: the primary key for the raw agencia data.
+            tests:
+            - unique
+            - not_null
+      - name: clientes
+        description: the raw clientes data.
+        columns:
+          - name: cod_agencia
+            description: the primary key for the raw clients data.
+            tests:
+            - unique
+            - not_null
