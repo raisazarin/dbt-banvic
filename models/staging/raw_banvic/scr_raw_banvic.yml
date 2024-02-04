@@ -29,3 +29,27 @@ sources:
             tests:
             - unique
             - not_null
+      - name: colaboradores
+        description: the raw colaboradores data.
+        columns:
+          - name: cod_colaborador
+            description: the primary key for the raw colaboradores data.
+            tests:
+            - unique
+            - not_null  
+      - name: contas
+        description: the raw contas data.
+        columns:
+          - name: num_conta
+            description: the primary key for the raw contas data.
+            tests:
+            - unique
+            - not_null
+      - name: propostas_credito
+        description: the raw propostas_credito data.
+        columns:
+          - name: cod_proposta
+            description: the primary key for the raw propostas_credito data.
+            tests:
+            - unique
+            - not_null  
