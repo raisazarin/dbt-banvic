@@ -1,11 +1,19 @@
-with clientes as (select * from {{ ref('stg_clientes') }})
+with clientes as (select * from {{ ref('int_clientes') }})
 
 select
 id_cliente,
-prim_nome_cliente || ' ' || ult_nome_cliente AS nome_cliente,
-right(endereco_cliente,2) as estado_cliente,
-tipo_cliente,
-date(data_incl_cliente) as data_incl_cliente,
-extract (year from CURRENT_DATE) - EXTRACT(YEAR FROM data_incl_cliente) as tempo_cliente,
-extract (year from CURRENT_DATE) - EXTRACT(YEAR FROM data_nasc_cliente) as idade
+nome_cliente,
+estado_cliente,
+data_incl_cliente,
+idade,
+case when idade between 0 and 25 then 'até 25 anos'
+         when idade between 26 and 40 then 'de 26 a 40 anos'
+         when idade between 41 and 60 then 'de 41 a 60 anos'
+         else 'acima de 60 anos'
+    end as faixa_etaria,
+tempo_cliente,
+case when tempo_cliente between 0 and 4 then 'até 4 anos'
+         when tempo_cliente between 5 and 9 then 'de 5 a 9 anos'
+         else '10 ou mais anos'
+    end as faixa_tempo_cliente
 from clientes
