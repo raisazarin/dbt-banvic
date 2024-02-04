@@ -21,3 +21,11 @@ sources:
             tests:
             - unique
             - not_null
+      - name: colaborador_agencia
+        description: the raw colaborador_agencia data.
+        columns:
+          - name: cod_colaborador
+            description: the primary key for the raw colaborador_agencia data.
+            tests:
+            - unique
+            - not_null
