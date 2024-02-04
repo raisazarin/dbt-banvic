@@ -52,4 +52,12 @@ sources:
             description: the primary key for the raw propostas_credito data.
             tests:
             - unique
+            - not_null
+      - name: transacoes
+        description: the raw transacoes data.
+        columns:
+          - name: cod_transacao
+            description: the primary key for the raw transacoes data.
+            tests:
+            - unique
             - not_null  

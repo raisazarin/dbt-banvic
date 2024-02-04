@@ -1,18 +1,11 @@
-with (
+WITH propostas_credito AS (select * from {{ ref('stg_propostas_credito') }})
 
-select * from {{ ref('stg_propostas_credito') }}
-
-)
-
-as propostas_credito,
-
-select (
-
+SELECT
     status_proposta,
-    sum(valor_financiamento) as total_finan
-)
+    round(SUM(valor_proposta),2) as total_finan
+FROM
+    propostas_credito
+GROUP BY 1
 
-group by 1
-from propostas_credito
 
 
