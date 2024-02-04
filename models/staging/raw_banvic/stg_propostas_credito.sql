@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        cod_proposta as id_porposta,
+        cod_proposta as id_proposta,
         cod_cliente as id_cliente,
         cod_colaborador as id_colaborador,
         data_entrada_proposta,
