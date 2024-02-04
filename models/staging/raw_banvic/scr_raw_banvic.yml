@@ -16,7 +16,7 @@ sources:
       - name: clientes
         description: the raw clientes data.
         columns:
-          - name: cod_agencia
+          - name: cod_cliente
             description: the primary key for the raw clients data.
             tests:
             - unique
