@@ -10,6 +10,7 @@ select
     nome_cliente,
     estados.nome_estado as estado_cliente,
     data_incl_cliente,
+    round((1/total_clientes) * 100,5) as percent_cliente,
     idade,
     case when idade between 0 and 25 then 'até 25 anos'
          when idade between 26 and 40 then 'de 26 a 40 anos'
