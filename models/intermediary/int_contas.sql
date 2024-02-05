@@ -5,6 +5,7 @@ with contas as (select * from {{ ref('stg_contas') }})
         id_cliente,
         id_agencia,
         id_colaborador,
+        (select count(*) from {{ ref('stg_contas') }}) as total_contas,
         date(data_abertura_conta) as data_abertura_conta,
         saldo_total,
         saldo_disponivel,

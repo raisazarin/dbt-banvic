@@ -1,0 +1,10 @@
+version: 2
+
+seeds:
+  - name: estados
+    description: a manual map from states name and sigla
+    columns:
+      - name: estado_cliente
+        tests:
+          - unique
+          - not_null
