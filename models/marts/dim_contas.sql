@@ -1,9 +1,14 @@
-with contas as (select * from {{ ref('int_contas') }})
+with 
+
+contas as (select * from {{ ref('int_contas') }})
 
     select
         num_conta,
         id_cliente,
-        id_agencia,
+        estado_cliente,
+        nome_agencia,
+        estado_agencia,
+        tipo_agencia,
         id_colaborador,
         data_abertura_conta,
         saldo_total,
@@ -17,3 +22,4 @@ with contas as (select * from {{ ref('int_contas') }})
         1/total_contas as percent_conta
         
     from contas
+    

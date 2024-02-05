@@ -1,6 +1,8 @@
 with 
 
-transacoes as (select * from {{ ref('stg_transacoes') }})
+transacoes as (select * from {{ ref('stg_transacoes') }}),
+
+contas as (select * from {{ ref('int_contas') }})
 
 select
         id_transacao,
@@ -8,7 +10,7 @@ select
         date(data_transacao) as data_transacao,
         nome_transacao,
         valor_transacao,
-        abs(valor_transacao) as modulo_valor_trasacao,
+        abs(valor_transacao) as modulo_valor_transacao,
         CASE 
             WHEN valor_transacao > 0 THEN 'entrada'
             WHEN valor_transacao < 0 THEN 'saida'
@@ -22,6 +24,8 @@ select
             WHEN EXTRACT(MONTH FROM data_transacao) BETWEEN 10 AND 12 THEN 'Q4'
             else 'quarter'
          end as quarter_transacao,
-         EXTRACT(year FROM data_transacao) AS ano_transacao
+         EXTRACT(year FROM data_transacao) AS ano_transacao,
+         contas.estado_cliente
 
     from transacoes
+    left join contas using (num_conta)
