@@ -6,6 +6,7 @@ contas as (select * from {{ ref('int_contas') }})
         num_conta,
         id_cliente,
         estado_cliente,
+        id_agencia,
         nome_agencia,
         estado_agencia,
         tipo_agencia,
