@@ -11,6 +11,7 @@ contas as (select * from {{ ref('int_contas') }})
         estado_agencia,
         tipo_agencia,
         id_colaborador,
+        nome_colaborador,
         data_abertura_conta,
         saldo_total,
         saldo_disponivel,
