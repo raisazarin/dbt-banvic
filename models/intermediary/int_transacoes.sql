@@ -4,9 +4,11 @@ transacoes as (select * from {{ ref('stg_transacoes') }}),
 
 contas as (select * from {{ ref('int_contas') }})
 
+
 select
         id_transacao,
         num_conta,
+        contas.nome_agencia,
         date(data_transacao) as data_transacao,
         nome_transacao,
         valor_transacao,
