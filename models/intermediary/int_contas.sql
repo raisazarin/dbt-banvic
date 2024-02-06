@@ -20,7 +20,8 @@ agencias as (select * from {{ ref('stg_agencias') }})
         saldo_total,
         saldo_disponivel,
         date(data_ultimo_lancamento) as data_ultimo_lancamento,
-        extract (month from data_ultimo_lancamento) - EXTRACT(month FROM CURRENT_DATE) as meses_inatividade,
+        extract (month from CURRENT_DATE) - EXTRACT(month from date(data_ultimo_lancamento)) + 
+            (extract (year from CURRENT_DATE) - EXTRACT(year from date(data_ultimo_lancamento))) * 12 - 11 as meses_inatividade
 
     from contas
     left join clientes using (id_cliente)
