@@ -1,0 +1,9 @@
+default:
+  outputs:
+    default:
+      type: bigquery
+      method: oauth
+      project: teste1-412021
+      dataset: dbt_rzarin
+      threads: 4
+
